@@ -12,18 +12,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(
-        primaryColor: Color(0xFF04009A),
-        accentColor: Color(0xFF77ACF1),
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        primaryColor: const Color(0xFF04009A),
+        accentColor: const Color(0xFF77ACF1),
         fontFamily: 'ReggaeOne',
         textTheme: ThemeData.light().textTheme.copyWith(
-              bodyText1: TextStyle(
+              bodyText1: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              bodyText2: TextStyle(
+              bodyText2: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              headline6: TextStyle(
+              headline6: const TextStyle(
                 fontSize: 18,
               ),
             ),
