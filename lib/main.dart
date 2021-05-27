@@ -12,26 +12,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xFF04009A),
+        accentColor: Color(0xFF77ACF1),
+        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        fontFamily: 'ReggaeOne',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              bodyText1: TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              bodyText2: TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              headline6: TextStyle(
+                fontSize: 18,
+              ),
+            ),
       ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("DeliMeals"),
-      ),
-      body: CategoriesScreen(),
+      home: CategoriesScreen(),
     );
   }
 }
