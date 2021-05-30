@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import '../dummy_data.dart';
 
-class MealDetailScreen extends StatefulWidget {
+class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-details';
 
-  @override
-  _MealDetailScreenState createState() => _MealDetailScreenState();
-}
+  final Function toggleFavorite;
+  final Function isFavorite;
 
-class _MealDetailScreenState extends State<MealDetailScreen> {
-  Color _color = Colors.white;
+  MealDetailScreen(this.toggleFavorite, this.isFavorite);
 
   Widget buildTitle(BuildContext context, String title) {
     return Container(
@@ -57,7 +54,7 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                 fit: BoxFit.cover,
               ),
             ),
-            buildTitle(context, 'Ingradients'),
+            buildTitle(context, 'ingredients'),
             buildContent(
                 context,
                 ListView.builder(
@@ -99,37 +96,8 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.star,
-          color: _color,
-        ),
-        onPressed: () {
-          if (_color == Colors.white) {
-            setState(() {
-              _color = Colors.amber;
-            });
-            Fluttertoast.showToast(
-              msg: "Added to Favorites",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.BOTTOM,
-              backgroundColor: Colors.grey,
-              textColor: Colors.white,
-              fontSize: 16.0,
-            );
-          } else {
-            setState(() {
-              _color = Colors.white;
-            });
-            Fluttertoast.showToast(
-              msg: "Removed from Favorites",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.BOTTOM,
-              backgroundColor: Colors.grey,
-              textColor: Colors.white,
-              fontSize: 16.0,
-            );
-          }
-        },
+        child: Icon(isFavorite(mealId) ? Icons.star : Icons.star_border),
+        onPressed: () => toggleFavorite(mealId),
       ),
     );
   }
