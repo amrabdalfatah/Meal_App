@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-import '../models/meal.dart';
 import '../dummy_data.dart';
 
-class MealDetailScreen extends StatelessWidget {
+class MealDetailScreen extends StatefulWidget {
   static const routeName = '/meal-details';
+
+  @override
+  _MealDetailScreenState createState() => _MealDetailScreenState();
+}
+
+class _MealDetailScreenState extends State<MealDetailScreen> {
+  Color _color = Colors.white;
 
   Widget buildTitle(BuildContext context, String title) {
     return Container(
@@ -72,23 +79,57 @@ class MealDetailScreen extends StatelessWidget {
                 )),
             buildTitle(context, 'Steps'),
             buildContent(
-                context,
-                ListView.builder(
-                  itemCount: detailMeal.steps.length,
-                  itemBuilder: (ctx, index) => Column(
-                    children: [
-                      ListTile(
-                        leading: CircleAvatar(
-                          child: Text('${index + 1}'),
-                        ),
-                        title: Text(detailMeal.steps[index]),
+              context,
+              ListView.builder(
+                itemCount: detailMeal.steps.length,
+                itemBuilder: (ctx, index) => Column(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        child: Text('${index + 1}'),
                       ),
-                      Divider(),
-                    ],
-                  ),
-                )),
+                      title: Text(detailMeal.steps[index]),
+                    ),
+                    Divider(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.star,
+          color: _color,
+        ),
+        onPressed: () {
+          if (_color == Colors.white) {
+            setState(() {
+              _color = Colors.amber;
+            });
+            Fluttertoast.showToast(
+              msg: "Added to Favorites",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              backgroundColor: Colors.grey,
+              textColor: Colors.white,
+              fontSize: 16.0,
+            );
+          } else {
+            setState(() {
+              _color = Colors.white;
+            });
+            Fluttertoast.showToast(
+              msg: "Removed from Favorites",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              backgroundColor: Colors.grey,
+              textColor: Colors.white,
+              fontSize: 16.0,
+            );
+          }
+        },
       ),
     );
   }
