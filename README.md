@@ -1,16 +1,27 @@
-# meal_app
+# Meal App
 
-A new Flutter project.
+A new Flutter project, which used Navigation and screens.
 
-## Getting Started
+Using pushing and poping on Navigator to control Pages.
 
-This project is a starting point for a Flutter application.
+Using Drawer, and BottomNavigationBar.
 
-A few resources to get you started if this is your first Flutter project:
+# Images
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src="assets/screenshoots/logo.jfif" width="200">
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="assets/screenshoots/photo9.jfif" width="400">
+
+<img src="assets/screenshoots/photo8.jfif" width="400">
+
+<img src="assets/screenshoots/photo7.jfif" width="400">
+
+<img src="assets/screenshoots/photo6.jfif" width="400">
+
+<img src="assets/screenshoots/photo5.jfif" width="400">
+
+<img src="assets/screenshoots/photo4.jfif" width="400">
+
+<img src="assets/screenshoots/photo2.jfif" width="400">
+
+<img src="assets/screenshoots/photo1.jfif" width="400">
